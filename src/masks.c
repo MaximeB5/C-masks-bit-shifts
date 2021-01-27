@@ -111,24 +111,52 @@ void bit_shift_left_s(unsigned short * const variable, const unsigned short * co
 
 
 // Bit forces
+/**
+ * @brief Force the bit at the specified position to 1.
+ * CAREFUL : the bit 'count' begins at index 0, so it means the number '4' is currently number '3' (because 0 1 2 3)
+ * 
+ * @param variable 
+ * @param bit_position 
+ */
 void bit_force_one_ui(unsigned int * const variable, const unsigned int * const bit_position)
 {
 	*variable = *variable | (1u << *bit_position);
 }
 
 
+/**
+ * @brief Force the bit at the specified position to 1.
+ * CAREFUL : the bit 'count' begins at index 0, so it means the number '4' is currently number '3' (because 0 1 2 3)
+ * 
+ * @param variable 
+ * @param bit_position 
+ */
 void bit_force_one_s(unsigned short * const variable, const unsigned short * const bit_position)
 {
 	*variable = *variable | (1u << *bit_position);
 }
 
 
+/**
+ * @brief Force the bit at the specified position to 0.
+ * CAREFUL : the bit 'count' begins at index 0, so it means the number '4' is currently number '3' (because 0 1 2 3)
+ * 
+ * @param variable 
+ * @param bit_position 
+ */
 void bit_force_zero_ui(unsigned int * const variable, const unsigned int * const bit_position)
 {
 	*variable = *variable & ~(1u << *bit_position);
 }
 
 
+/**
+ * @brief Force the bit at the specified position to 0.
+ * CAREFUL : the bit 'count' begins at index 0, so it means the number '4' is currently number '3' (because 0 1 2 3)
+ * 
+ * @param variable 
+ * @param bit_position 
+ */
 void bit_force_zero_s(unsigned short * const variable, const unsigned short * const bit_position)
 {
 	*variable = *variable & ~(1u << *bit_position);
@@ -137,15 +165,31 @@ void bit_force_zero_s(unsigned short * const variable, const unsigned short * co
 
 
 // Bit values
+/**
+ * @brief Get the bit value at the specified position to 0.
+ * CAREFUL : the bit 'count' begins at index 0, so it means the number '4' is currently number '3' (because 0 1 2 3)
+ * 
+ * @param variable 
+ * @param bit_position 
+ * @return unsigned int 
+ */
 unsigned int get_bit_value_ui(const unsigned int * const variable, const unsigned int * const bit_position)
 {
-	return *variable & (1u << *bit_position);
+	return ((*variable & (1u << *bit_position)) ? 1 : 0);
 }
 
 
+/**
+ * @brief Get the bit value at the specified position to 0.
+ * CAREFUL : the bit 'count' begins at index 0, so it means the number '4' is currently number '3' (because 0 1 2 3)
+ * 
+ * @param variable 
+ * @param bit_position 
+ * @return unsigned short 
+ */
 unsigned short get_bit_value_s(const unsigned short * const variable, const unsigned short * const bit_position)
 {
-	return *variable & (1u << *bit_position);
+	return ((*variable & (1u << *bit_position)) ? 1 : 0);
 }
 
 

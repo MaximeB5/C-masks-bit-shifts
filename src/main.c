@@ -40,8 +40,8 @@ int main()
 
 	unsigned nb_bits			= 3;
 	unsigned bit_shift 			= 0b01100010;
-	const unsigned res_left		= 16;
-	const unsigned res_right	= 2;
+	const unsigned res_left		= 0b01100010000;
+	const unsigned res_right	= 0b01100010;
 
 	bit_shift_left_ui (&bit_shift, &nb_bits);
 	if( bit_shift == res_left )						printf("ok bit_shift_left_ui\n");
@@ -57,7 +57,7 @@ int main()
 	printf("\n--- TEST Bit forces ---\n\n");
 
 	unsigned data		= 0b1000;
-	unsigned force		= 4;
+	unsigned force		= 3;
 	const unsigned res0	= 0b0000;
 	const unsigned res1	= 0b1000;
 
@@ -75,10 +75,10 @@ int main()
 	printf("\n--- TEST Bit values ---\n\n");
 
 	const unsigned value	= 0b01100010;
-	const unsigned pos0		= 5;
-	const unsigned pos1		= 6;
-	const unsigned respos0	= 5;
-	const unsigned respos1	= 6;
+	const unsigned pos0		= 4;
+	const unsigned pos1		= 5;
+	const unsigned respos0	= 0;
+	const unsigned respos1	= 1;
 
 	if( get_bit_value_ui (&value, &pos0) == respos0 )	printf("ok get_bit_value_ui '0'\n");
 	else 												printf("NOK get_bit_value_ui '0'\n");
