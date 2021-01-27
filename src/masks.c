@@ -221,24 +221,16 @@ unsigned short is_even_s(const unsigned short * const s)
 
 void show_bits(const unsigned int * const variable)
 {
-    unsigned int i = 0;
-	unsigned int four_counter = 1; 
+	unsigned int counter = 0;
 
-    for( i = ( sizeof(unsigned int) * CHAR_BIT ); i > 0; i--, ++four_counter )
-    {
-       //putchar(*variable & (1u << i) ? '1' : '0');
-	   	int k = *variable >> i;
-
-		if (k & 1)
-		printf("1");
-		else
-		printf("0");
-
-	   if(four_counter == 4) {
-		   putchar(' ');
-		   four_counter = 0;
-	   }
-    }
+	do
+	{	
+		if((*variable >> (((sizeof(unsigned int) * CHAR_BIT) - counter) - 1)) & 1)	{ putchar('1'); }
+		else 																		{ putchar('0'); }
+		
+		++counter;
+	}
+	while(counter < sizeof(unsigned int) * CHAR_BIT);
 
     printf("\n");
 }
